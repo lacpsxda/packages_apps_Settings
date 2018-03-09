@@ -226,7 +226,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
 
-        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat " + SystemProperties.get("ro.rr.tag","") + " - " + Build.ID);
+        setStringSummary(KEY_BUILD_NUMBER, "Android " + SystemProperties.get("ro.rr.tag","") + " - " + Build.ID);
         // Remove regulatory labels if no activity present to handle intent.
         removePreferenceIfActivityMissing(
                 KEY_REGULATORY_INFO, Settings.ACTION_SHOW_REGULATORY_INFO);
@@ -576,7 +576,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 	private String getMemInfo() {
             String result = null;
             BufferedReader reader = null;
-    
+
             try {
                 /* /proc/meminfo entries follow this format:
                  * MemTotal:         362096 kB
@@ -592,13 +592,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     }
                 }
             } catch (IOException e) {}
-    
+
             return result;
         }
-    
+
         private String getCPUInfo() {
             String result = null;
-    
+
             try {
                 /* The expected /proc/cpuinfo output is as follows:
                  * Processor    : ARMv7 Processor rev 2 (v7l)
@@ -609,7 +609,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                     result = firstLine.split(":")[1].trim();
                 }
             } catch (IOException e) {}
-    
+
             return result;
         }
 

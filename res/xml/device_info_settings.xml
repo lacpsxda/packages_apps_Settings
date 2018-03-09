@@ -34,20 +34,7 @@
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen-->
-
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/rr_mod_version"
-                android:summary="@string/mod_version_default"
-                android:icon="@drawable/rr_mod_version_icon"/>
-
-        <!-- About Resurrection -->        
-        <PreferenceScreen
-                android:key="about_rom"
-                android:fragment="com.android.settings.rr.About"
-                android:title="@string/about_rr_settings"
-                android:summary="@string/about_r0m_summary" />
-        
+       
         <!-- Build date -->
         <Preference android:key="build_date"
                 style="?android:preferenceInformationStyle"
@@ -213,6 +200,18 @@
                 android:title="@string/selinux_status"
                 android:summary="@string/selinux_status_enforcing"
                 settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true"/>
+                settings:allowDividerBelow="true"/>     
+             
+        <!-- Changelog -->        
+        <PreferenceScreen
+                android:key="about_rom"
+                android:title="@string/changelog_title"
+                android:summary="@string/changelog_title_summary"
+                android:fragment="com.android.settings.rr.ChangeLog" />
+     
+        <Preference android:key="mod_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/changelog_version"
+                android:summary="@string/mod_version_default" />
 
 </PreferenceScreen>
