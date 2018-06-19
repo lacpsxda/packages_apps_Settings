@@ -18,13 +18,6 @@
         xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
         android:title="@string/about_settings">
 
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/rr_mod_version"
-                android:summary="@string/mod_version_default"
-                android:icon="@drawable/rr_mod_version_icon"/>
-
-
         <!-- Device status - launches activity -->
         <Preference android:key="status_info"
                 android:title="@string/device_status"
@@ -100,6 +93,12 @@
         <!-- Build date -->
         <org.lineageos.internal.preference.deviceinfo.LineageBuildDatePreference
                 android:key="build_date" />
+                
+        <Preference android:key="mod_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/rr_mod_version"
+                android:summary="@string/mod_version_default"
+                android:icon="@drawable/rr_mod_version_icon"/>
 
         <!-- Detailed build version -->
         <Preference

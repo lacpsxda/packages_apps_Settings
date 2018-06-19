@@ -78,13 +78,8 @@ public static final String TAG = "About";
 private static final String RR_ROM_SHARE = "share";
     
     Preference mSiteUrl;
-    Preference mForumUrl;
     Preference mSourceUrl;
-    Preference mFacebookUrl;
-    Preference mGoogleUrl;
     Preference mDonateUrl;
-    Preference mPitchBlackUrl;
-    Preference mTwitterUrl;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,13 +87,8 @@ private static final String RR_ROM_SHARE = "share";
         addPreferencesFromResource(R.xml.about_rom);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
-        mPitchBlackUrl = findPreference("rr_pb");
-        mTwitterUrl = findPreference("rr_twitter");
         mSiteUrl = findPreference("rr_website");
-        mForumUrl = findPreference("rr_forum");
         mSourceUrl = findPreference("rr_source");
-        mFacebookUrl = findPreference("rr_facebook");
-        mGoogleUrl = findPreference("rr_google_plus");
         mDonateUrl = findPreference("rr_donate");
         PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
@@ -123,28 +113,18 @@ private static final String RR_ROM_SHARE = "share";
 
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mSiteUrl) {
-            launchUrl("http://resurrectionremix.com/");
-        } else if (preference == mPitchBlackUrl) {
-            launchUrl("https://play.google.com/store/apps/details?id=pitchblack.origins.westcrip");
-        } else if (preference == mTwitterUrl) {
-            launchUrl("https://twitter.com/rrosofficial");
-        } else if (preference == mForumUrl) {
-            launchUrl("http://forum.resurrectionremix.com/");
+            launchUrl("http://groovyandroid.ga/");
         } else if (preference == mSourceUrl) {
-            launchUrl("https://github.com/ResurrectionRemix");
-        } else if (preference == mFacebookUrl) {
-            launchUrl("https://www.facebook.com/resurrectionremixrom");
-        } else if (preference == mGoogleUrl) {
-            launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
+            launchUrl("https://github.com/GroovyAndroid");
         } else if (preference == mDonateUrl) {
-            launchUrl("http://forum.xda-developers.com/donatetome.php?u=4144763");
+            launchUrl("https://paypal.me/BernardoBas");
         } else if (preference.getKey().equals(RR_ROM_SHARE)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, String.format(
                     getActivity().getString(R.string.share_message)));
-            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title)));
+            startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_rr)));
             }  else {
                 // If not handled, let preferences handle it.
                 return super.onPreferenceTreeClick(preference);
